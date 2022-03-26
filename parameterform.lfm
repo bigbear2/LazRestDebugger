@@ -1,0 +1,101 @@
+object frmParameter: TfrmParameter
+  Left = 759
+  Height = 174
+  Top = 317
+  Width = 346
+  BorderStyle = bsDialog
+  Caption = 'Parameter'
+  ClientHeight = 174
+  ClientWidth = 346
+  OnCreate = FormCreate
+  Position = poMainFormCenter
+  LCLVersion = '2.2.0.4'
+  object btnCancel: TButton
+    Left = 265
+    Height = 25
+    Top = 142
+    Width = 75
+    Anchors = [akRight, akBottom]
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 0
+  end
+  object btnOK: TButton
+    Left = 185
+    Height = 25
+    Top = 142
+    Width = 75
+    Anchors = [akRight, akBottom]
+    Caption = 'OK'
+    Default = True
+    OnClick = btnOKClick
+    TabOrder = 1
+  end
+  object lblKind: TLabel
+    Left = 8
+    Height = 15
+    Top = 8
+    Width = 27
+    Caption = 'Kind:'
+  end
+  object cbbKind: TComboBox
+    Left = 8
+    Height = 23
+    Top = 24
+    Width = 100
+    ItemHeight = 15
+    ItemIndex = 1
+    Items.Strings = (
+      'COOKIE'
+      'GET/POST'
+      'URL-SEGMENT'
+      'HEADER'
+      'BODY'
+      'FILE'
+      'QUERY'
+    )
+    Style = csDropDownList
+    TabOrder = 2
+    Text = 'GET/POST'
+  end
+  object lblName: TLabel
+    Left = 112
+    Height = 15
+    Top = 8
+    Width = 35
+    Caption = 'Name:'
+  end
+  object edtValue: TEdit
+    Left = 8
+    Height = 23
+    Top = 72
+    Width = 329
+    Anchors = [akTop, akLeft, akRight]
+    TabOrder = 3
+  end
+  object lblValue: TLabel
+    Left = 8
+    Height = 15
+    Top = 56
+    Width = 31
+    Caption = 'Value:'
+  end
+  object cbbName: TComboBox
+    Left = 112
+    Height = 23
+    Top = 24
+    Width = 225
+    Anchors = [akTop, akLeft, akRight]
+    ItemHeight = 15
+    TabOrder = 4
+  end
+  object chkNotEncoded: TCheckBox
+    Left = 8
+    Height = 19
+    Top = 112
+    Width = 98
+    Caption = 'Do not encode'
+    TabOrder = 5
+  end
+end

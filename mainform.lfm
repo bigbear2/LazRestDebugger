@@ -1,0 +1,623 @@
+object frmMain: TfrmMain
+  Left = 497
+  Height = 622
+  Top = 180
+  Width = 983
+  Caption = 'LazRestDebugger v2022.1'
+  ClientHeight = 622
+  ClientWidth = 983
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.2.0.4'
+  object tlbMain: TToolBar
+    Left = 0
+    Height = 24
+    Top = 0
+    Width = 983
+    AutoSize = True
+    Images = il16
+    List = True
+    ShowCaptions = True
+    TabOrder = 0
+    object btnSendRequest: TToolButton
+      Left = 1
+      Top = 2
+      Caption = 'Send Request'
+      ImageIndex = 0
+      OnClick = btnSendRequestClick
+    end
+    object ToolButton1: TToolButton
+      Left = 98
+      Height = 22
+      Top = 2
+      Caption = 'ToolButton1'
+      Style = tbsSeparator
+    end
+    object btnNewRequest: TToolButton
+      Left = 106
+      Top = 2
+      Caption = 'New Request'
+      ImageIndex = 1
+      OnClick = btnNewRequestClick
+    end
+    object btnLoadRequest: TToolButton
+      Left = 201
+      Top = 2
+      Caption = 'Load Request'
+      ImageIndex = 2
+      OnClick = btnLoadRequestClick
+    end
+    object btnSaveRequest: TToolButton
+      Left = 298
+      Top = 2
+      Caption = 'Save Request'
+      ImageIndex = 3
+      OnClick = btnSaveRequestClick
+    end
+    object ToolButton2: TToolButton
+      Left = 393
+      Height = 22
+      Top = 2
+      Caption = 'ToolButton2'
+      Style = tbsSeparator
+    end
+  end
+  object gbRequest: TGroupBox
+    Left = 8
+    Height = 304
+    Top = 32
+    Width = 967
+    Align = alTop
+    BorderSpacing.Around = 8
+    Caption = 'Request'
+    ClientHeight = 284
+    ClientWidth = 963
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    object pgcRequest: TPageControl
+      Left = 8
+      Height = 268
+      Top = 8
+      Width = 947
+      ActivePage = tsParameters
+      Align = alClient
+      BorderSpacing.Around = 8
+      ParentFont = False
+      TabIndex = 1
+      TabOrder = 0
+      object tsRequest: TTabSheet
+        Caption = 'Request'
+        ClientHeight = 240
+        ClientWidth = 939
+        object cbbMethod: TComboBox
+          Left = 8
+          Height = 23
+          Top = 24
+          Width = 100
+          ItemHeight = 15
+          ItemIndex = 0
+          Items.Strings = (
+            'POST'
+            'PUT'
+            'GET'
+            'DELETE'
+            'PATCH'
+          )
+          Style = csDropDownList
+          TabOrder = 0
+          Text = 'POST'
+        end
+        object lblMethod: TLabel
+          Left = 8
+          Height = 15
+          Top = 8
+          Width = 45
+          Caption = 'Method:'
+        end
+        object lblUrl: TLabel
+          Left = 112
+          Height = 15
+          Top = 8
+          Width = 18
+          Caption = 'Url:'
+        end
+        object cbbUrl: TComboBox
+          Left = 112
+          Height = 23
+          Top = 24
+          Width = 817
+          Anchors = [akTop, akLeft, akRight]
+          ItemHeight = 15
+          Items.Strings = (
+            'https://api.brt.it/rest/v1/shipments/shipment'
+          )
+          TabOrder = 1
+          Text = 'https://collaudo-wsrest.sda.it/SPEDIZIONE-WS-WEB/rest/spedizioneService'
+        end
+        object lblContentType: TLabel
+          Left = 8
+          Height = 15
+          Top = 56
+          Width = 75
+          Caption = 'Content-Type:'
+        end
+        object cbbContentType: TComboBox
+          Left = 8
+          Height = 23
+          Top = 72
+          Width = 921
+          Anchors = [akTop, akLeft, akRight]
+          ItemHeight = 15
+          ItemIndex = 1
+          Items.Strings = (
+            'application/atom+xml'
+            'application/json'
+            'application/xml'
+            'application/x-www-form-urlencoded'
+            'text/html'
+          )
+          TabOrder = 2
+          Text = 'application/json'
+        end
+        object lblBody: TLabel
+          Left = 8
+          Height = 15
+          Top = 108
+          Width = 30
+          Caption = 'Body:'
+        end
+        object mmoBodyRequest: TMemo
+          Left = 8
+          Height = 106
+          Top = 128
+          Width = 921
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          Lines.Strings = (
+            '{"formatoStampa":"A6","ldv":{"datiSpedizione":{"accessori":{},"codiceServizio":"S09","datiGenerali":{"contenuto":"PET","dataSpedizione":"24\/03\/2022","note":"","numRifInterno":"171-0603152-6824344"},"sezioneColli":{"colli":[{"altezza":15,"larghezza":50,"peso":12,"profondita":40}]}},"destinatario":{"cap":"45100","codNazione":"ITA","email":"521474djr1w3g12@marketplace.amazon.it","identificativoFiscale":"","indirizzo":"VIA CRISTOFORO COLOMBO 22","intestatario":"LUISA GUSELLA","localita":"ROVIGO","provincia":"RO","referente":"LUISA GUSELLA","telefono":"3402773031","tipoAnagrafica":"S"},"mittente":{"cap":"04017","codNazione":"ITA","email":"info@agrozootecnica.com","identificativoFiscale":"02091010591","indirizzo":"VIA MONTENERO 27","intestatario":"AGROZOOTECNICA DI FERRANTE MAURIZIO","localita":"SAN FELICE CIRCEO","provincia":"LT","referente":"SIG. MAURIZIO FERRANTE","telefono":"0773545049","tipoAnagrafica":"S"}}}'
+          )
+          ScrollBars = ssAutoBoth
+          TabOrder = 3
+        end
+      end
+      object tsParameters: TTabSheet
+        Caption = 'Parameters'
+        ClientHeight = 240
+        ClientWidth = 939
+        object lblResource: TLabel
+          Left = 8
+          Height = 15
+          Top = 8
+          Width = 51
+          Caption = 'Resource:'
+        end
+        object edtResource: TEdit
+          Left = 8
+          Height = 23
+          Top = 24
+          Width = 920
+          TabOrder = 0
+        end
+        object lblRequestParameters: TLabel
+          Left = 8
+          Height = 15
+          Top = 60
+          Width = 107
+          Caption = 'Request Parameters:'
+        end
+        object lvParameters: TListView
+          Left = 8
+          Height = 152
+          Top = 80
+          Width = 816
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          AutoSort = False
+          Columns = <          
+            item
+              Caption = 'Kind'
+              Width = 100
+            end          
+            item
+              Caption = 'Name'
+              Width = 150
+            end          
+            item
+              Caption = 'Value'
+              Width = 430
+            end          
+            item
+              Alignment = taCenter
+              Caption = 'Not Encoded'
+              Width = 100
+            end>
+          GridLines = True
+          HideSelection = False
+          ReadOnly = True
+          RowSelect = True
+          TabOrder = 1
+          ViewStyle = vsReport
+          OnDblClick = lvParametersDblClick
+        end
+        object btnAddParam: TButton
+          Left = 832
+          Height = 25
+          Top = 80
+          Width = 96
+          Anchors = [akTop, akRight]
+          Caption = 'Add'
+          OnClick = btnAddParamClick
+          TabOrder = 2
+        end
+        object btnEditParam: TButton
+          Left = 832
+          Height = 25
+          Top = 112
+          Width = 96
+          Anchors = [akTop, akRight]
+          Caption = 'Edit'
+          OnClick = btnEditParamClick
+          TabOrder = 3
+        end
+        object btnDeleteParam: TButton
+          Left = 832
+          Height = 25
+          Top = 144
+          Width = 96
+          Anchors = [akTop, akRight]
+          Caption = 'Delete'
+          OnClick = btnDeleteParamClick
+          TabOrder = 4
+        end
+        object btnPaste: TButton
+          Left = 832
+          Height = 25
+          Top = 176
+          Width = 96
+          Anchors = [akTop, akRight]
+          Caption = 'Paste'
+          OnClick = btnPasteClick
+          TabOrder = 5
+        end
+        object btnLoad: TButton
+          Left = 832
+          Height = 25
+          Top = 207
+          Width = 96
+          Anchors = [akTop, akRight]
+          Caption = 'Load'
+          OnClick = btnLoadClick
+          TabOrder = 6
+        end
+      end
+      object tsAuthentication: TTabSheet
+        Caption = 'Authentication'
+        ClientHeight = 240
+        ClientWidth = 939
+        object lblMethod1: TLabel
+          Left = 8
+          Height = 15
+          Top = 8
+          Width = 45
+          Caption = 'Method:'
+        end
+        object cbbMethodAuth: TComboBox
+          Left = 8
+          Height = 23
+          Top = 24
+          Width = 100
+          ItemHeight = 15
+          ItemIndex = 2
+          Items.Strings = (
+            'NONE'
+            'SIMPLE'
+            'BASIC'
+            'OAUTH'
+            'OAUTH2'
+          )
+          Style = csDropDownList
+          TabOrder = 0
+          Text = 'BASIC'
+        end
+        object lblUsername: TLabel
+          Left = 112
+          Height = 15
+          Top = 8
+          Width = 56
+          Caption = 'Username:'
+        end
+        object edtUsername: TEdit
+          Left = 112
+          Height = 23
+          Top = 24
+          Width = 144
+          TabOrder = 1
+          Text = 'DEM210175'
+        end
+        object lblPassword: TLabel
+          Left = 112
+          Height = 15
+          Top = 56
+          Width = 53
+          Caption = 'Password:'
+        end
+        object edtPassword: TEdit
+          Left = 112
+          Height = 23
+          Top = 72
+          Width = 144
+          TabOrder = 2
+          Text = 'Gennaio10!'
+        end
+        object lblUsername1: TLabel
+          Left = 272
+          Height = 15
+          Top = 8
+          Width = 80
+          Caption = 'Username-Key:'
+        end
+        object edtUsernameKey: TEdit
+          Left = 272
+          Height = 23
+          Top = 24
+          Width = 144
+          TabOrder = 3
+        end
+        object lblPassword1: TLabel
+          Left = 272
+          Height = 15
+          Top = 56
+          Width = 77
+          Caption = 'Password-Key:'
+        end
+        object edtPasswordKey: TEdit
+          Left = 272
+          Height = 23
+          Top = 72
+          Width = 144
+          TabOrder = 4
+        end
+        object lblClientID: TLabel
+          Left = 432
+          Height = 15
+          Top = 8
+          Width = 50
+          Caption = 'Client-ID:'
+        end
+        object edtClientID: TEdit
+          Left = 432
+          Height = 23
+          Top = 24
+          Width = 144
+          TabOrder = 5
+        end
+        object lblClientSecret: TLabel
+          Left = 432
+          Height = 15
+          Top = 56
+          Width = 71
+          Caption = 'Client-Secret:'
+        end
+        object edtClientSecret: TEdit
+          Left = 432
+          Height = 23
+          Top = 72
+          Width = 144
+          TabOrder = 6
+        end
+        object lblAccessToken: TLabel
+          Left = 592
+          Height = 15
+          Top = 8
+          Width = 75
+          Caption = 'Access-Token:'
+        end
+        object edtAccessToken: TEdit
+          Left = 592
+          Height = 23
+          Top = 24
+          Width = 144
+          TabOrder = 7
+        end
+        object lblRequestToken: TLabel
+          Left = 592
+          Height = 15
+          Top = 56
+          Width = 81
+          Caption = 'Request-Token:'
+        end
+        object edtRequestToken: TEdit
+          Left = 592
+          Height = 23
+          Top = 72
+          Width = 144
+          TabOrder = 8
+        end
+      end
+      object tsConnection: TTabSheet
+        Caption = 'Connection'
+        ClientHeight = 240
+        ClientWidth = 939
+        object lblUserAgent: TLabel
+          Left = 8
+          Height = 15
+          Top = 8
+          Width = 61
+          Caption = 'User Agent:'
+        end
+        object cbbUserAgent: TComboBox
+          Left = 8
+          Height = 23
+          Top = 24
+          Width = 920
+          Anchors = [akTop, akLeft, akRight]
+          ItemHeight = 15
+          ItemIndex = 0
+          Items.Strings = (
+            'Lazarus RESTClient/1.0'
+            'Embarcadero RESTClient/1.0'
+            'Mozilla/4.0 (compatible; MSIE 6.0; MS Web Services Client Protocol 4.0.30319.42000)'
+          )
+          TabOrder = 0
+          Text = 'Lazarus RESTClient/1.0'
+        end
+      end
+    end
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 344
+    Width = 983
+    Align = alTop
+    ResizeAnchor = akTop
+  end
+  object gbResponse: TGroupBox
+    Left = 8
+    Height = 234
+    Top = 357
+    Width = 967
+    Align = alClient
+    BorderSpacing.Around = 8
+    Caption = 'Response'
+    ClientHeight = 214
+    ClientWidth = 963
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    object pgcResponse: TPageControl
+      Left = 8
+      Height = 152
+      Top = 54
+      Width = 947
+      ActivePage = tsHeaders
+      Align = alClient
+      BorderSpacing.Around = 8
+      ParentFont = False
+      TabIndex = 0
+      TabOrder = 0
+      object tsHeaders: TTabSheet
+        Caption = 'Headers'
+        ClientHeight = 124
+        ClientWidth = 939
+        object mmoHeaders: TMemo
+          Left = 0
+          Height = 124
+          Top = 0
+          Width = 939
+          Align = alClient
+          ScrollBars = ssAutoBoth
+          TabOrder = 0
+        end
+      end
+      object tsBody: TTabSheet
+        Caption = 'Body'
+        ClientHeight = 124
+        ClientWidth = 939
+        object mmoBodyResponse: TMemo
+          Left = 0
+          Height = 124
+          Top = 0
+          Width = 939
+          Align = alClient
+          ScrollBars = ssAutoBoth
+          TabOrder = 0
+        end
+      end
+      object tsTabularData: TTabSheet
+        Caption = 'Tabular Data'
+      end
+      object tsDebug: TTabSheet
+        Caption = 'Debug'
+        ClientHeight = 124
+        ClientWidth = 939
+        object mmoLog: TMemo
+          Left = 0
+          Height = 124
+          Top = 0
+          Width = 939
+          Align = alClient
+          ScrollBars = ssAutoBoth
+          TabOrder = 0
+        end
+      end
+    end
+    object Label1: TLabel
+      Left = 8
+      Height = 15
+      Top = 8
+      Width = 947
+      Align = alTop
+      BorderSpacing.Around = 8
+      Caption = 'Label1'
+      Visible = False
+    end
+    object lblResponseMessage: TLabel
+      Left = 8
+      Height = 15
+      Top = 31
+      Width = 947
+      Align = alTop
+      BorderSpacing.Around = 8
+      Caption = 'Response Message:'
+    end
+  end
+  object sbStatus: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 599
+    Width = 983
+    Panels = <    
+      item
+        Width = 500
+      end    
+      item
+        Text = 'New Request'
+        Width = 100
+      end    
+      item
+        Width = 100
+      end>
+    SimplePanel = False
+  end
+  object il16: TImageList
+    Left = 712
+    Top = 192
+    Bitmap = {
+      4C7A0400000010000000100000000E0400000000000078DADD96DB531B7514C7
+      E3833E391DC707C7D119FF80FE075E66EA8C406941C7FAE0B47DD0565B748697
+      B6DA21F76C80A293259B0B0D4960777305CA2508D336D510A0A50869B8A4B681
+      D2366D090203451924C90285E9717FAB616258926CC6AAE377E6FBB27B3EE777
+      7EE7FC7E3B2B1209974D73F6559A909EA66B25F65C19B711DB4313F2E3CDE69A
+      71A751CDB8CE576ED15AA92C136332612F529A8A4F5CE7AB461C065562D0D719
+      5B987D049B4F36C0A693AF3B08D9EBE98CD55AF63C8957BCEFAA537BED7A05E3
+      EF72AF442393B0B5B509EB6B0C3CBA17868753B7C065548F261900D173546DC5
+      3B4E03E6649998B7B561E57E780C36D6D72029C4786C3A5863E2F07D3B15236B
+      C527104B6925A79C462CCAEE2B363AE8DBFC6D790952B5968883BFDB0D242EE6
+      72A09C34215B2789D32F23BE1117BF6B2364CC5C3402E9427537D59F03BB4E01
+      3D9D0EEED9D4ADE05376BD9ED43D53B8E44D36268EE253D7F4D05A181BB80CCD
+      A66AAE6EA42EA77195C2C587D2FBD6A0AD780BE5085EBBC2AD39D2DF0DCBF311
+      686BD4707523ADAE2CA3BEC7DB30EC05BE79A11C689F0FC201585D8AC290AF1D
+      7C7FD68D141AEEDB721894CE4C33473C621F4EDCF84BDD4817ACDFC6688D645F
+      363E69B497A47E599C07BB41F918CD3A97F34A6A246FDBF48A44347287E303FD
+      979ED8740AAD907B82CED41F3926C15557C9B0F765AFD0BB4669C445E8BCB033
+      9F16E5295407A59596E7DA373EDBF5CA60367E37A1771D1401CE3A75205F1EDD
+      1B0FAD63EB50FD940F8F847274D0C453F61C0C0BE5D32D84E7CBF76FF21D242E
+      888F6F6CC2628CEDDDED69B004EE4224721B8ACC3FBC922BDF3D3103A5B41F8E
+      5C1884639D37A084F24309DD4BE4C20F4D2FC2E1A601C0C6E7C0B50C9CF1A95F
+      A194F2270ED2FE2FB2F157EECCC2F1EF82DB6CD265DE9B0CCBD764E37D77E7B8
+      9AD3F993976F32A5746F55CEF58766B3D6BFF3CE292074FD12B4FC18E47A76B8
+      E53A7CEA19E6ED5F267D68EB7FA9C0DAF3C641BA575E62EB230B29DF6BE9F3CB
+      5705D27A4877A1DCAA10C29FECBABFEDCFDAC270406D63F62B1A9442F86CDFAF
+      DDEE702A2F44CF9A9F9C598033D445E0EBEF769FA596F86EEF0ED538A1DC1382
+      EAD1189C1B4FECB0F4EA1C14AB1A7F46B11F7CD3CC1B93C967BCF7D8395101C4
+      7F6CEC16CC97778460BF8A6C42FC31AA4F307FC235080572335624B7C297AD41
+      C1FC51B317DE93983E2FC6483875715230FF11DE0A85625351B18A0471DF8C60
+      BEA4D2CEAE6FD95B28B3649C71261FC08C7B44FF0139CEE2906AB3F22BD049CA
+      76D8A2F81A9A247A391FBF3A11E13CEF1BE262D13F60BAD1F376B58971CBF44A
+      217CF29F123D5F1A9B004F757DBC59AAABC98747318F47C3DC3EF9F8C5AB23E0
+      C695BCFB6F31546DC7EDC6E7EA67C567D33FC22F0CF0FB7FBC7E3EFE3BEEEEEF
+      E1DFFAFC
+    }
+  end
+end
